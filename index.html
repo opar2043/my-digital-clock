@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="Name"> <h1>Digital Cloc'k By R.R: opar</h1> </div>
+    
+
+    <div class="main">
+        <div class="sub-main">
+            <div class="timer">
+                <h1 id="timer">   </h1>
+                <small id="AM">   </small>
+            </div>
+        </div>
+    </div>
+    <div class="sesh"><h4>This Will Provide You The Actual Time</h4></div>
+    <script>
+        function ActualTime() {
+            let date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconeds = date.getSeconds();
+            let timeFormate = 'AM';
+            if(hours===0){
+                hours = 12;
+            }
+            
+            if(hours>12){
+                hours = hours - 12;
+                timeFormate = 'PM';
+            }
+            if(hours>12){
+              
+
+            }
+            if(hours<10){
+                hours ='0' + hours;
+            }
+            if(minutes<10){
+                minutes ='0' + minutes;
+            }
+            if(seconeds<10){
+                seconeds ='0' + seconeds;
+            }
+
+            let finalTime = `${hours}:${minutes}:${seconeds} `
+            document.getElementById('timer').innerText = finalTime;
+            document.getElementById('AM').innerText = timeFormate ;
+
+            setInterval(ActualTime,1000);
+        }
+        ActualTime();
+    </script>
+    
+</body>
+</html>
